@@ -102,13 +102,13 @@ When you have data from multiple subjects resist the temptation to throw all dat
 ```shell
 /home/mikkel/my_project/data/ ...
     ./sub01 ...
-        ./session1 ...
+        ./ses-1 ...
             ./sub01-ses1-raw-tsss.fif
             ./sub01-ses1-raw-downsampled.mat
             ./sub01-ses1-epochs.mat
             ./sub01-ses1-tfr.mat
             ... etc.
-        ./session2 ...
+        ./ses-2 ...
             ./sub01-ses2-raw-tsss.fif
             ./sub01-ses2-raw-downsampled.mat
             ./sub01-ses2-epochs.mat
@@ -162,6 +162,6 @@ There are also a lot of good resources for tips and tricks on MEG/EEG analysis. 
 
 ***
 
-[^1]: van Vliet, M. (2020). Seven quick tips for analysis scripts in neuroimaging. *PLOS Computational Biology*, *16*(3), e1007358. https://doi.org/10.1371/journal.pcbi.1007358van
+[^1]: van Vliet, M. (2020). Seven quick tips for analysis scripts in neuroimaging. *PLOS Computational Biology*, *16*(3), e1007358. https://doi.org/10.1371/journal.pcbi.1007358
 
 [^2]: [The Brain Imaging Data Structure (BIDS)](https://bids.neuroimaging.io/) is an initiative to standardize how neuroimaging data is stored to allow easy sharing of data across research groups and sites. Originally BIDS was for sharing MRI data but has since been expanded for MEG (and by extension EEG). Niso, G., Gorgolewski, K. J., Bock, E., Brooks, T. L., Flandin, G., Gramfort, A., Henson, R. N., Jas, M., Litvak, V., T. Moreau, J., Oostenveld, R., Schoffelen, J.-M., Tadel, F., Wexler, J., & Baillet, S. (2018). [MEG-BIDS, the brain imaging data structure extended to magnetoencephalography](https://doi.org/10.1038/sdata.2018.110). *Scientific Data, 5(1)*.
