@@ -1,6 +1,6 @@
 # Tips for writing useful analysis scripts
 
-Writing data analysis scripts can quickly become a mess! There are many steps to go from raw MEG/EEG data to the final results. It is essential to keep track of what processing step that goes before and after another. Know what data that should be read in one step, saved to memory, and then read in the next step. If we mess this up, we might end up with invalid results. And it is easy to  make errors: read the wrong data files, using different versions of toolboxes, working in the wrong directory, etc., especially in MEG/EEG data processing where there are several manual steps and we often have to go back to re-run analysis.
+Writing data analysis scripts can quickly become a mess! There are many steps to go from raw MEG/EEG data to the final results. It is essential to keep track of what processing step that goes before and after another. Know what data that should be read in one step, saved to memory, and then read in the next step. If you mess this up, you end up with invalid results. And it is easy to  make errors: read the wrong data files, using different versions of toolboxes, working in the wrong directory, etc., especially in MEG/EEG data processing where there are several manual steps and we often have to go back to re-run analysis.
 
 Below you find a quick list of recommendations to make it easier for you to write useful analysis scripts. The recommendations are based on van Vliet (2020)[^1] and the MEG-BIDS guidelines[^2]. I recommend that you take a look at these when you have to write your own analysis scripts.
 
@@ -10,7 +10,7 @@ In MATLAB you write comments with the percentage symbol `%`. Use this to write s
 For example:
 
 ````matlab
-%% Calculate PSD: multitaper
+%% Calculate power spectral dentity (PSD) with multitapers
 cfg = [];
 cfg.output    = 'pow';          % Return PSD
 cfg.channel   = 'all';  		% Calculate for all channels
@@ -27,7 +27,7 @@ There are several reasons why you should comment your scripts. The first reason 
 ## Use section breaks when testing code
 When writing code you often want to run only a small snip of code, e.g. when you test your code while scripting.
 
-If you only want to run parts of your script, you can mark code and select `run selection` or press `F9`. However, constantly marking code manually becomes annoying, really fast. Instead, use section breaks. You start a section with `%%` (two percentage signs). The line is commented, and you will notice that the section is highlighted in a yellowish colour. If you now press `ctrl+enter` you will run the code in the highlighted section.
+If you only want to run parts of your script, you can mark code and select `run selection` or press `F9`. However, constantly marking code manually becomes annoying really fast. Instead, use section breaks. You start a section with `%%` (two percentage signs). The line is commented, and you will notice that the section is highlighted in a yellowish colour. If you now press `ctrl+enter` you will run the code in the highlighted section.
 
 ```matlab
 %% Make a section
@@ -39,7 +39,7 @@ plot(x, y, 'or')
 ```
 
 ## Define the paths and toolboxes at the beginning of the script
-For this tutorial, you will use the toolbox FieldTrip to analyses MEG/EEG data. FieldTrip is written in MATLAB but is not a part of MATLAB. We , therefore, need to make sure that MATLAB has FieldTrip in its PATH definition to use the functions. The same applies if you use other toolboxes. This is simple: simply use the MATLAB function  `addpath( ... )` to add the path where you downloaded FieldTrip. If you have several versions of FieldTrip or have used other toolboxes before you run this script, it is also a good idea to restore the PATH with the function `resotredefaultpath`
+For this tutorial, you will use the toolbox FieldTrip to analyses MEG/EEG data. FieldTrip is written in MATLAB but is not a part of MATLAB. We, therefore, need to make sure that MATLAB has FieldTrip in its PATH definition to use the functions. The same applies if you use other external toolboxes in MATLAB. This is simple: simply use the MATLAB function  `addpath( ... )` to add the path where you downloaded FieldTrip. If you have several versions of FieldTrip or have used other toolboxes before you run this script, it is also a good idea to restore the PATH with the function `resotredefaultpath`
 
 The start of my script may look like this:
 
@@ -54,6 +54,7 @@ If you have several variables with the same names, it might also be good to add 
 close all       % Close all open windows
 clear all       % Clear all variables from the workspace
 ````
+
 After this, we are ready to begin our script, and we will use the version of FieldTrip that we know we have at the given location.
 
 ## Run all analysis with one version of the software
